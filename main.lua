@@ -14,6 +14,7 @@ function QuickApp:onInit()
     self:updateProperty('model', 'Velux Active KIX 300')
     self:updateView("button1", "text", self.i18n:get('stop'))
     self:updateView("button2", "text", self.i18n:get('search-devices'))
+    self:updateView("button3", "text", self.i18n:get('refresh'))
     self:updateView("label", "text", self.i18n:get('name'))
     self:updateProperty("value", 99)
     if string.len(self.config:getModuleID()) > 10 then
