@@ -26,3 +26,5 @@ Follow regular installation process. After virtual device will be added to your 
 Then, click on `Search devices` button which will pull all information from your Velux account that includes Homes, Gateways and detected shutters.
 
 To access pulled information, go to logs of the device, review detected devices and use proper IDs as variables of the QuickApp.
+
+To have more controls, you may also change role of the shutter to `Blind with positioning`.
