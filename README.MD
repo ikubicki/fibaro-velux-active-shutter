@@ -25,6 +25,12 @@ If you own more than one gateway or more locations (homes), `GatewayID` and `Hom
 Follow regular installation process. After virtual device will be added to your Home Center unit, click on Variables and provide `Username` and `Password`.
 Then, click on `Search devices` button which will pull all information from your Velux account that includes Homes, Gateways and detected shutters.
 
+If you're installing another device, your Username, Password, HomeID and GatewayID will be automatically populated from previous device.
+
 To access pulled information, go to logs of the device, review detected devices and use proper IDs as variables of the QuickApp.
 
 To have more controls, you may also change role of the shutter to `Blind with positioning`.
+
+## Notes
+
+This application uses API credentials from reverse engineering of Android package.
