@@ -48,7 +48,7 @@ function Config:setModuleID(module_id)
 end
 
 function Config:getInterval()
-    return 30 * 1000
+    return 1800 * 1000
 end
 
 --[[

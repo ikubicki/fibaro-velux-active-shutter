@@ -241,13 +241,25 @@ function Velux:getHomeID(callback)
     self.http:postForm(url, data, success, fail)
 end
 
-function Velux:getHomeStatus(callback, home_id)
+function Velux:getHomeStatus(callback, home_id, attempt)
+    if attempt == nil then
+        attempt = 0
+    end
     if home_id == nil or home_id == '' then
         home_id = Velux.getHomeIDConfig()
     end
+
     local fail = function(response)
         QuickApp:error('Unable to pull home status')
         Velux:setToken('')
+        
+        if attempt < 3 then
+            attempt = attempt + 1
+            fibaro.setTimeout(3000, function()
+                QuickApp:debug('Velux:getHomeStatus - Retry attempt #' .. attempt)
+                self:getHomeStatus(callback, home_id, attempt)
+            end)
+        end
     end
     local success = function(response)
         if response.status > 299 then

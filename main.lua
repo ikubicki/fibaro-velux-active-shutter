@@ -14,7 +14,6 @@ function QuickApp:onInit()
     self:updateProperty('model', 'Velux Active KIX 300')
     self:updateView("button1", "text", self.i18n:get('stop'))
     self:updateView("button2", "text", self.i18n:get('search-devices'))
-    self:updateView("button3", "text", self.i18n:get('refresh'))
     self:updateView("label", "text", self.i18n:get('name'))
     self:updateProperty("value", 99)
     if string.len(self.config:getModuleID()) > 10 then
@@ -82,7 +81,7 @@ function QuickApp:updateValues(position, newPosition)
         value = 99
         text = self.i18n:get('shutter-opened')
     else 
-        text = string.format(self.i18n:get('shutter-half-opened'), position)
+        text = string.format(self.i18n:get('shutter-half-open'), position)
     end
     local inMotion = false
     if newPosition ~= nil and newPosition > position then
@@ -111,7 +110,7 @@ end
 
 function QuickApp:pullDataFromCloud()
     local callback = function(moduleData)
-        -- QuickApp:debug(json.encode(moduleData))
+        QuickApp:debug(json.encode(moduleData))
         self:updateView("button3", "text", self.i18n:get('refresh'))
         self:updateValues(moduleData.current_position, moduleData.target_position)
     end
