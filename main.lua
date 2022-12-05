@@ -110,7 +110,7 @@ end
 
 function QuickApp:pullDataFromCloud()
     local callback = function(moduleData)
-        QuickApp:debug(json.encode(moduleData))
+        -- QuickApp:debug(json.encode(moduleData))
         self:updateView("button3", "text", self.i18n:get('refresh'))
         self:updateValues(moduleData.current_position, moduleData.target_position)
     end
