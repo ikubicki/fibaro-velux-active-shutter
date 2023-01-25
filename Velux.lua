@@ -141,7 +141,7 @@ function Velux:auth(callback)
     end
     local success = function(response)
         -- QuickApp:debug(json.encode(response))
-        if response.status > 299 then
+        if response.status < 200 or response.status > 299 then
             fail(response)
             return
         end
@@ -225,7 +225,7 @@ function Velux:getHomeID(callback)
         Velux:setToken('')
     end
     local success = function(response)
-        if response.status > 299 then
+        if response.status < 200 or response.status > 299 then
             fail(response)
             return
         end
@@ -262,7 +262,7 @@ function Velux:getHomeStatus(callback, home_id, attempt)
         end
     end
     local success = function(response)
-        if response.status > 299 then
+        if response.status < 200 or response.status > 299 then
             fail(response)
             return
         end
@@ -324,7 +324,7 @@ function Velux:setState(data, callback)
         Velux:setToken('')
     end
     local success = function(response)
-        if response.status > 299 then
+        if response.status < 200 or response.status > 299 then
             fail(response)
             return
         end
